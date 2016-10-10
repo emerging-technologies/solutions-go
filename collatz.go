@@ -4,7 +4,7 @@
 
 
 // This program starts with a positive integer, and repeatedly applies
-// the following operations:
+// the following operations until repitition occurs:
 //   If even: divide by two
 //   If odd: mul....
 // It prints each number in sequence.
@@ -17,9 +17,14 @@ import (
   "strconv"
 )
 
+// Here we assume the Collatz conjecture is true.
+// Loop until n is 1 - it always becomes 1 eventually,
+// if Collatz is true.
 func collatz(n uint) {
   for ; n != 1; {
+    // Print current value of n.
     fmt.Print(n, " ")
+    // Apply 3n+1 if n is odd, n/2 otherwise.
     if n % 2 == 0 {
       n = n / 2
     } else {
@@ -42,8 +47,4 @@ func main() {
       }
     }
   }
-
-
-  // collatz(20)
-  // collatz(400)
 }
